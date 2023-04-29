@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoItem } from '../todoitems';
 import { Model } from '../model';
+import { retry } from 'rxjs';
 
 @Component({
   selector: 'app-todo',
@@ -28,7 +29,8 @@ export class TodoComponent {
       return this.model.items;
     } 
      return this.model.items.filter(item => item.action == false)
-    
   } 
-
+  displayCount() {
+    return this.model.items.filter(i=>i.action).length;
+  }
 }

@@ -6,57 +6,62 @@
     <div class="header">
       <h1>To Do List</h1>
     </div>
-    <div class="alert alert-warning" *ngIf="getItems().length == 0">
-      There is no items in here :'( 
+    <div class="alert alert-warning" *ngIf="getItems().length == 0 else itemsTable">
+      All Missions Completed !
     </div>
-    <ul id="sortable">
-      <li style="display:none">    
-        <div class="dragger">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><circle cy="7" cx="9.5" r="1" fill="#999"></circle><circle cy="7" cx="14" r="1" fill="#999"></circle><circle cy="12.5" cx="9.5" r="1" fill="#999"></circle><circle cy="12.5" cx="14" r="1" fill="#999"></circle><circle cy="18" cx="9.5" r="1" fill="#999"></circle><circle cy="18" cx="14" r="1" fill="#999"></circle></svg>
-        </div>
-        <input type="checkbox"/>
-        <label>
-          <div class="checkbox"><span class="fa fa-check"></span></div>
-          <span class="item-name"></span>        
-          <input type="text">
-        </label>
-        <div class="actions"> 
-          <span class="fa fa-pencil"></span>
-          <span class="fa fa-trash"></span>        
-        </div>
-      </li>
-      <div class="check">
-        <input type="checkbox"  [(ngModel)]="displayAll" style="margin-left:30px"/>
-        <label for="displayAll" style="margin-left:10px" class="form-check-label">Display All</label>
-      </div>
-      <li class="priority">
-        <div *ngFor="let item of getItems(); let i = index" >
-          <input type="checkbox" [(ngModel)]="item.action" name="" id="{{i}}">
-          <label for="{{i}}">
-            <span class="item-name">{{item.description}}</span>
- 
-            <div class="actions">
-              <span *ngIf="item.action">Done !</span>
-              <span style="color: #999;" *ngIf="!item.action">You can do it !</span>
-            </div> 
-
-            <!-- <div class="actions" [ngSwitch]="item.action">
-              <div *ngSwitchCase="true">Done !</div>
-              <div *ngSwitchDefault>You Can Do It !</div>
-            </div> -->
-
+    <ng-template #itemsTable>
+      <ul id="sortable">
+        <li style="display:none">    
+          <div class="dragger">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><circle cy="7" cx="9.5" r="1" fill="#999"></circle><circle cy="7" cx="14" r="1" fill="#999"></circle><circle cy="12.5" cx="9.5" r="1" fill="#999"></circle><circle cy="12.5" cx="14" r="1" fill="#999"></circle><circle cy="18" cx="9.5" r="1" fill="#999"></circle><circle cy="18" cx="14" r="1" fill="#999"></circle></svg>
+          </div>
+          <input type="checkbox"/>
+          <label>
+            <div class="checkbox"><span class="fa fa-check"></span></div>
+            <span class="item-name"></span>        
+            <input type="text">
           </label>
+          <div class="actions"> 
+            <span class="fa fa-pencil"></span>
+            <span class="fa fa-trash"></span>        
+          </div>
+        </li>
+        <div class="check">
+          <input type="checkbox"  [(ngModel)]="displayAll" style="margin-left:30px"/>
+          <label for="displayAll" style="margin-left:10px" class="form-check-label">Display All</label>
         </div>
-      </li>
-    </ul>
-    <div class="add">
-      <div class="add-txt">
-        <input #addSmthng type="text" name="add" 
-        (keyup.enter)="addItem(addSmthng.value); addSmthng.value='';">
-        <div>
-          <span class="fa fa-plus" (click)="addItem(addSmthng.value); addSmthng.value='';"></span>
+        <li class="priority">
+          <div *ngFor="let item of getItems(); let i = index" >
+            <input type="checkbox" [(ngModel)]="item.action" name="" id="{{i}}">
+            <label for="{{i}}">
+              <span class="item-name">{{item.description}}</span>
+  
+              <div class="actions">
+                <span *ngIf="item.action">Done !</span>
+                <span style="color: #999;" *ngIf="!item.action">You can do it !</span>
+              </div> 
+
+              <!-- <div class="actions" [ngSwitch]="item.action">
+                <div *ngSwitchCase="true">Done !</div>
+                <div *ngSwitchDefault>You Can Do It !</div>
+              </div> -->
+
+            </label>
+          </div>
+        </li>
+      </ul>
+      <div class="add">
+        <div class="add-txt">
+          <input #addSmthng type="text" name="add" 
+          (keyup.enter)="addItem(addSmthng.value); addSmthng.value='';">
+          <div>
+            <span class="fa fa-plus" (click)="addItem(addSmthng.value); addSmthng.value='';"></span>
+          </div>
+        </div>
+        <div class="mx-1">
+          <span style="color: #999;" >Total number of done :  {{displayCount()}} </span>
         </div>
       </div>
-    </div>
+    </ng-template>
 </div>
 
