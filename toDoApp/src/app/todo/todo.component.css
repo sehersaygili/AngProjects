@@ -17,17 +17,6 @@ body{
     border-radius:2px;
   }
   
-  .explanation{
-    position:absolute;
-    top:0px;
-    left:50%;
-    width:100%;
-    max-width:400px;
-    -ms-transform: translateX(-50%);
-    -webkit-transform: translateX(-50%);
-    transform: translateX(-50%);
-  }
-  
   .main .header{
     width:100%;
     height:200px;

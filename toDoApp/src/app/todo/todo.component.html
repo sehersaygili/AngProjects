@@ -6,6 +6,9 @@
     <div class="header">
       <h1>To Do List</h1>
     </div>
+    <div class="alert alert-warning" *ngIf="getItems().length == 0">
+      There is no items in here :'( 
+    </div>
     <ul id="sortable">
       <li style="display:none">    
         <div class="dragger">
@@ -27,14 +30,21 @@
         <label for="displayAll" style="margin-left:10px" class="form-check-label">Display All</label>
       </div>
       <li class="priority">
-        <input type="text">
         <div *ngFor="let item of getItems(); let i = index" >
           <input type="checkbox" [(ngModel)]="item.action" name="" id="{{i}}">
           <label for="{{i}}">
             <span class="item-name">{{item.description}}</span>
+ 
             <div class="actions">
-              <span class="fa fa-pencil"></span>
-            </div>
+              <span *ngIf="item.action">Done !</span>
+              <span style="color: #999;" *ngIf="!item.action">You can do it !</span>
+            </div> 
+
+            <!-- <div class="actions" [ngSwitch]="item.action">
+              <div *ngSwitchCase="true">Done !</div>
+              <div *ngSwitchDefault>You Can Do It !</div>
+            </div> -->
+
           </label>
         </div>
       </li>
@@ -48,5 +58,5 @@
         </div>
       </div>
     </div>
-  </div>
+</div>
 
