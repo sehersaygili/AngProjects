@@ -1,0 +1,296 @@
+body{
+    background:#eaeaeac8;
+    font-family:Arial, sans-serif;
+    color:#333;
+  }
+  
+  .wrapper{
+    width:100%;
+    max-width:700px;
+    margin: 100px auto;
+  }
+  
+  .main{
+    background:#fff;
+    width:100%;
+    box-shadow:0px 5px 15px rgba(0, 0, 0, 0.888);
+    border-radius:2px;
+  }
+  
+  .explanation{
+    position:absolute;
+    top:0px;
+    left:50%;
+    width:100%;
+    max-width:400px;
+    -ms-transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
+  
+  .main .header{
+    width:100%;
+    height:200px;
+    background-position:top left;
+    border-radius:2px 2px 0 0;
+    overflow:hidden;
+    position:relative;
+  }
+  
+  .main .header h1{
+    margin:0;
+    color:#efcde5f3;
+    vertical-align:bottom;
+    display:inline-block;
+    position:absolute;
+    bottom:0px;
+    left:0px;
+    padding:25px;
+    text-shadow:1px 1px 2px rgb(133, 21, 21);
+  }
+  
+  .main .header h1 span{
+    font-size:16px;
+    display:block;
+    font-weight:normal;
+    margin-top:5px;
+  }
+  
+  .main ul{
+    padding:0;
+    margin:0;
+    list-style-type: none;
+    padding-top:5px;
+    position:relative;
+  }
+  
+  .main ul li{
+    position:relative;  
+    padding:0 25px;
+  }
+  
+  
+  .main ul li .dragger{
+    position:absolute;
+      top: -1px;
+      left: -21px;
+      color: #ccc;
+      font-size: 11px;
+      display: none; 
+      padding: 23px;
+    cursor:move;
+  }
+  
+  .main ul li.dragger span:first-child{
+    position:relative;
+    left:5px;
+  }
+  
+  .main ul li:hover .dragger{
+    display:block;
+  }
+  
+  .main div.add .add-txt div span{
+    color:#fff;
+    font-size:12px;
+    position:relative;
+    bottom:5px;
+  }
+  
+  .main div.add .add-txt span.txt{
+    display: inline-block;
+      margin-left: 10px;
+      vertical-align: top;
+      position: relative;
+      bottom: 2px;
+  }
+  
+  .main ul li.ui-sortable-helper{
+    background:white;
+    border-radius:2px;
+    box-shadow:0px 5px 15px rgba(0,0,0,0.1);
+    cursor:move;
+  }
+  
+  .main ul li.ui-sortable-helper label{
+      border:none;
+  }
+  
+  
+  .main ul li:nth-child(2) label{
+    border-top:0;
+  }
+  
+  .main ul li label{
+    display:inline-block;
+    height:100%;
+    width:100%;
+    padding:20px 0;
+    position:relative;
+     border-top:1px solid #eaeaea;
+  }
+  
+  .main ul li label:hover .checkbox{
+    border-color:#999;
+  }
+  
+  /*CHECKED*/
+  .main ul li input[type=checkbox]:checked + label span:before{
+    width:100%;
+  }
+  
+  .main ul li input[type=checkbox]:checked + label .checkbox, 
+  .main ul li input[type=checkbox]:focus + label .checkbox{
+    background:rgb(133, 21, 21);
+    border-color:#efcde5f3;
+  }
+  
+  .main ul li input[type=checkbox]:checked + label{
+    color:#CCC;
+  }
+  
+  .main ul li input[type=checkbox]:checked + .icon-pencil{
+    color:green;
+  }
+  
+  .main ul li input[type=checkbox]:checked + label .checkbox .fa{
+    display:block;
+  }
+  
+  .main ul li label .checkbox{
+    display:inline-block;
+    width:20px;
+    height:20px;
+    border:2px solid #CCC;
+    position:relative;
+    top:2px;
+    border-radius:4px;
+    cursor:pointer;
+    z-index:10;
+  }
+  
+  .main ul li label .checkbox .fa{
+    text-align:center;
+    position:absolute;
+    top:1px;
+    left:1px;
+    font-size:14px;
+    display:none;
+    color:white;
+  }
+  
+  .main ul li label span.item-name{
+    display:inline-block; 
+    margin-left:10px;
+    vertical-align: top;
+    position:relative;
+   
+  }
+  
+  .main ul li label span.item-name:before{
+    content:'';
+    height:1px;
+    background:#999;
+    width:0;
+    position:absolute;
+    top:12px;
+    left:0;
+    
+    -webkit-transition: all 0.2s ease;
+      -moz-transition:    all 0.2s ease;
+      -o-transition:      all 0.2s ease;
+      -ms-transition:     all 0.2s ease;
+      transition:         all 0.2s ease;
+  }
+  
+  .add input,
+  .main ul li input[type=text]{
+     position: absolute;
+      border: none;
+      color: #333;
+      font-size: 16px;
+      background: white;
+      padding: 25px 0;
+    padding-left:39px;
+      width:0;  
+      top: 0px;
+    left:0;
+      display: none;
+      font-family: Arial;
+    border-bottom:2px solid #34a1fd;
+    
+       -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    z-index:1;
+    
+    -webkit-transition: width 0.2s ease;
+      -moz-transition:    width 0.2s ease;
+      -o-transition:      width 0.2s ease;
+      -ms-transition:     width 0.2s ease;
+      transition:         width 0.2s ease;
+  }
+
+  .add input,
+  .main ul li input[type=text]:focus{
+    outline:none;
+    width:100%;
+  }
+  
+  .main ul li input[type=checkbox]{
+    display:none;
+  }
+  
+  .main ul .actions{
+    position:absolute;
+    top:0;
+    right:20px;
+    z-index:10;
+  }
+  
+  .main ul li:hover .actions{
+    display:block;
+  }
+  
+  .main ul .actions span{
+     display: inline-block;
+    padding:25px 6px;
+    cursor:pointer;
+  }
+  
+  .main ul .actions span.fa-pencil{
+    color:#34a1fd;
+  }
+  
+  .main ul .actions span.fa-trash{
+    color:#fe4444;
+  }
+
+  /*ADD NEW*/
+  .main div.add{
+    padding:0 20px;
+    cursor:pointer;
+    position:relative;
+  }
+  
+  .main div.add .add-txt{
+    border-top:1px solid #eaeaea;
+    padding:22px 0 23px;;
+    position:relative;
+  }
+  
+  .main div.add .add-txt div {
+    border-radius:50%;
+    width:20px;
+    height:20px;
+    background:rgb(133, 21, 21);
+    border: 2px solid #efcde5f3;  
+    display:inline-block;
+    text-align:center;
+    position:relative;
+    z-index:10;
+  }
+  
+  .add input{
+    border-bottom:0;
+  }
