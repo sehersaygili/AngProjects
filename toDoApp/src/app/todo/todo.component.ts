@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TodoItem } from '../todoitems';
+import { Model } from '../model';
 
 @Component({
   selector: 'app-todo',
@@ -9,10 +11,10 @@ export class TodoComponent {
 
   constructor() { }
 
-  items = [
-   { description: "kahvaltı", action: "Yes"},
-   { description: "Spor", action: "Yes"},
-   { description: "Alışveriş", action: "No"}
-  ];
+  model = new Model();
+
+  getItems() {
+    return this.model.items;
+  }
 
 }

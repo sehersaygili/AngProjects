@@ -23,7 +23,7 @@
         </div>
       </li>
       <li class="priority">
-        <div *ngFor="let item of items; let i = index">
+        <div *ngFor="let item of getItems(); let i = index">
           <input type="checkbox" id="{{i}}" />
           <label for="{{i}}">
             <div class="checkbox" ><span class="fa fa-check" ></span></div>
