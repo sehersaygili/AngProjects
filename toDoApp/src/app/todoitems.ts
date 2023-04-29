@@ -20,6 +20,6 @@
 
 export interface TodoItem{ //interface ile oluşturulacak objelerin şemasını oluşturuyoruz
     description: string; //yanlış bir değer girildiğinde uyarır
-    action: string;
+    action: boolean;
 }
 

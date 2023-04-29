@@ -22,17 +22,18 @@
           <span class="fa fa-trash"></span>        
         </div>
       </li>
+      <div class="check">
+        <input type="checkbox"  [(ngModel)]="displayAll" style="margin-left:30px"/>
+        <label for="displayAll" style="margin-left:10px" class="form-check-label">Display All</label>
+      </div>
       <li class="priority">
-        <div *ngFor="let item of getItems(); let i = index">
-          <input type="checkbox" id="{{i}}" />
+        <input type="text">
+        <div *ngFor="let item of getItems(); let i = index" >
+          <input type="checkbox" [(ngModel)]="item.action" name="" id="{{i}}">
           <label for="{{i}}">
-            <div class="checkbox" ><span class="fa fa-check" ></span></div>
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><circle cy="7" cx="9.5" r="1" fill="#999"></circle><circle cy="7" cx="14" r="1" fill="#999"></circle><circle cy="12.5" cx="9.5" r="1" fill="#999"></circle><circle cy="12.5" cx="14" r="1" fill="#999"></circle><circle cy="18" cx="9.5" r="1" fill="#999"></circle><circle cy="18" cx="14" r="1" fill="#999"></circle></svg>
             <span class="item-name">{{item.description}}</span>
-            <input type="text">
             <div class="actions">
               <span class="fa fa-pencil"></span>
-              <span class="fa fa-trash"></span>
             </div>
           </label>
         </div>
@@ -40,10 +41,12 @@
     </ul>
     <div class="add">
       <div class="add-txt">
-        <input type="text" name="add">
+        <input #addSmthng type="text" name="add" 
+        (keyup.enter)="addItem(addSmthng.value); addSmthng.value='';">
         <div>
-          <span class="fa fa-plus"></span>
+          <span class="fa fa-plus" (click)="addItem(addSmthng.value); addSmthng.value='';"></span>
         </div>
       </div>
     </div>
   </div>
+
