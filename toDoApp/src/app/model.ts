@@ -6,11 +6,7 @@ export class Model {
 
     constructor() {
         this.name = "Seher";
-        this.items = [
-            { description: "kahvaltı", action: true},
-            { description: "Spor", action: false},
-            { description: "Alışveriş", action: false}
-        ];
+        this.items = [];
     }
 }
 const m = new Model();

@@ -14,7 +14,7 @@ body{
     background:#fff;
     width:100%;
     box-shadow:0px 5px 15px rgba(0, 0, 0, 0.888);
-    border-radius:2px;
+    border-radius:4px;
   }
   
   .main .header{
@@ -245,6 +245,7 @@ body{
     padding:0 20px;
     cursor:pointer;
     position:relative;
+    height: 150px;
   }
   
   .main div.add .add-txt{
@@ -270,4 +271,6 @@ body{
     margin-bottom:10px;
   }
 
-  
+  .bg-custom {
+    background-color: rgb(251, 212, 219);
+  }
